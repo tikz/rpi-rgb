@@ -17,11 +17,14 @@ g.start(0)
 b.start(0)
 
 try:
-    while 1:
+    while True:
         for i in range(0, 101, 1):
-            r_val = math.sin(2 * math.pi * i/100) * 50 + 50
-            print(r_val)
+            r_val = math.sin(2 * math.pi * i / 100) * 50 + 50
+            g_val = math.sin(2 * math.pi * i / 100 + 1 / 3) * 50 + 50
+            b_val = math.sin(2 * math.pi * i / 100 + 2 / 3) * 50 + 50
             r.ChangeDutyCycle(r_val)
+            g.ChangeDutyCycle(g_val)
+            b.ChangeDutyCycle(b_val)
             time.sleep(0.1)
 
 except KeyboardInterrupt:
