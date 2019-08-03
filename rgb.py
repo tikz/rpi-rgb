@@ -2,6 +2,7 @@ import time
 import RPi.GPIO as GPIO
 import math
 
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 GPIO.setup(13, GPIO.OUT)
@@ -18,14 +19,14 @@ b.start(0)
 
 try:
     while True:
-        for i in range(0, 101, 1):
-            r_val = math.sin(2 * math.pi * i / 100) * 50 + 50
-            g_val = math.sin(2 * math.pi * i / 100 + 1 / 3) * 50 + 50
-            b_val = math.sin(2 * math.pi * i / 100 + 2 / 3) * 50 + 50
+        for i in range(0, 501, 1):
+            r_val = math.sin(4 * math.pi * i / 500) * 50 + 50
+            g_val = math.sin(6 * math.pi * i / 500) * 50 + 50
+            b_val = math.sin(8 * math.pi * i / 500) * 50 + 50
             r.ChangeDutyCycle(r_val)
             g.ChangeDutyCycle(g_val)
             b.ChangeDutyCycle(b_val)
-            time.sleep(0.1)
+            time.sleep(0.01)
 
 except KeyboardInterrupt:
     pass
